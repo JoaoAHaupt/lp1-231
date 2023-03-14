@@ -27,7 +27,7 @@ public class introducao {
         // CHAR
         char letra = 'A';
 
-        //BOOLEAN
+       // consul mbti //BOOLEAN
         boolean ligado = true;
         boolean desligado = false;
 

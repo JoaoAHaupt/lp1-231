@@ -20,39 +20,9 @@ class Retangulo {
     }
 }
 
-// Classe
-class Quadrado {
-    // Atributos
-    double lado;
 
-
-    // Métodos
-
-    public double calcularArea() {
-        return lado * lado;
-    }
-
-    public double calcularPerimetro() {
-        return lado * 4;
-    }
-}
 
 // Classe
-class Circulo {
-    // Atributos
-    double raio;
-
-
-    // Métodos
-
-    public double calcularArea() {
-        return Math.PI * (raio * raio);
-    }
-
-    public double calcularPerimetro() {
-        return 2 * Math.PI  * raio;
-    }
-}
 
 
 

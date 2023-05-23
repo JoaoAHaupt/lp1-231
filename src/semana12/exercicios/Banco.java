@@ -12,13 +12,14 @@ public class Banco {
     }
 
     public String sacar(double saque){
-        if(saque > saldo){
-            return "Saldo invalido";
-        }
-        else{
-            saldo =-saque;
+        if(saque <= saldo){
+            saldo = saldo -saque;
             String str = Double.toString(saldo);
             return str;
+        }
+        else{
+            return "Saldo invalido";
+
         }
     }
 
@@ -27,7 +28,7 @@ public class Banco {
             return "Saldo invalido";
         }
         else{
-            saldo =-transferir;
+            saldo =saldo -transferir;
             String str = Double.toString(saldo);
             return str;
         }

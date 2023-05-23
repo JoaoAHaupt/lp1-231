@@ -21,7 +21,7 @@ public class Imc {
 
 
         if( peso / (altura * altura) >= 18.5 && peso / (altura * altura) <= 24.9){
-            return "peso Normal ";
+            return "Peso Normal ";
         }
         else if( peso / (altura * altura) >= 25 && peso / (altura * altura) <= 29.9){
             return "Excesso de peso";

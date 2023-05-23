@@ -51,7 +51,7 @@ public class AquarioTeste {
     public void testCalcularVolumeComprNeg2(){
         // AAA
         // Arrange
-        Aquario aquatest  = new Aquario(-10, 10 ,-10);
+        Aquario aquatest  = new Aquario(10, -10 ,-10);
 
         double volume = aquatest.calcularVolume();
 

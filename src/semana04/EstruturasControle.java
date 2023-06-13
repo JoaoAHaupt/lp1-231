@@ -1,6 +1,5 @@
 package semana04;
 
-import java.security.Key;
 
 public class EstruturasControle {
     public static void main(String[] args){

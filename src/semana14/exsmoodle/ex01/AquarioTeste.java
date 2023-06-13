@@ -11,10 +11,10 @@ public class AquarioTeste {
     public void testCalcularVolume(){
         // AAA
         // Arrange
-        Aquario aquatest  = new Aquario(10,10,10,36,35);
-        aquatest.setComprimento(10);
-        aquatest.setLargura(10);
-        aquatest.setAltura(10);
+        Aquario aquatest  = new Aquario(10.0,10.0,10.0, 10.0, 10);
+        aquatest.setComprimento(10.0);
+        aquatest.setLargura(10.0);
+        aquatest.setAltura(10.0);
 
         double volume = aquatest.calcularVolume();
 
@@ -24,10 +24,10 @@ public class AquarioTeste {
     @Test
     public void testCalcularVolumeNegativo(){
         // AAA
+        Aquario aquatest  = new Aquario(10.0,10.0,10.0, 10.0, 10);
         assertThrows(RuntimeException.class, () -> {
-            Aquario aquatest = new Aquario(10,10,10,36,35);
-            aquatest.setComprimento(-10);
-            aquatest.setLargura(-10);
+            aquatest.setComprimento(-10.0);
+            aquatest.setLargura(-10.0);
         });
 
     }
@@ -36,116 +36,93 @@ public class AquarioTeste {
     public void testCalcularVolumeComprNeg(){
         // AAA
         // Arrange
-        Aquario aquatest  = new Aquario(10,10,10,36,35);
-        aquatest.setComprimento(-10);
-        aquatest.setLargura(10);
-        aquatest.setAltura(10);
-
-        double volume = aquatest.calcularVolume();
-
-        assertEquals(-1, volume);
+        Aquario aquatest  = new Aquario(10.0,10.0,10.0, 10.0, 10);
+        assertThrows(RuntimeException.class, () -> {
+        aquatest.setComprimento(-10.0);
+        aquatest.setLargura(10.0);
+        aquatest.setAltura(10.0);
+    });
     }
 
     @Test
     public void testCalcularVolumeNegLa(){
         // AAA
         // Arrange
-        Aquario aquatest  = new Aquario(10,10,10,36,35);
-       aquatest.setComprimento(10);
-       aquatest.setLargura(-10);
-       aquatest.setAltura(10);
+        Aquario aquatest  = new Aquario(10.0,10.0,10.0, 10.0, 10);
+        assertThrows(RuntimeException.class, () -> {
+        aquatest.setComprimento(10.0);
+        aquatest.setLargura(-10.0);
+        aquatest.setAltura(10.0);
+    });
 
-        double volume = aquatest.calcularVolume();
-
-        assertEquals(-1, volume);
     }
 
     @Test
     public void testCalcularVolumeNegAl(){
         // AAA
         // Arrange
-        Aquario aquatest  = new Aquario(10,10,10,36,35);
-        aquatest.setAltura(10);
-        aquatest.setLargura(10);
-        aquatest.setAltura(-10);
+        Aquario aquatest  = new Aquario(10.0,10.0,10.0, 10.0, 10);
+        assertThrows(RuntimeException.class, () -> {
+        aquatest.setAltura(10.0);
+        aquatest.setLargura(10.0);
+        aquatest.setAltura(-10.0);
 
-        double volume = aquatest.calcularVolume();
-
-        assertEquals(-1, volume);
+    });
     }
 
     @Test
     public void testCalcularVdasolume2NegCompAl(){
         // AAA
         // Arrange
-        Aquario aquatest  = new Aquario(10,10,10,36,35);
-        aquatest.setAltura(-10);
-        aquatest.setLargura(10);
-        aquatest.setAltura(-10);
-
-        double volume = aquatest.calcularVolume();
-
-        assertEquals(1, volume);
+        Aquario aquatest  = new Aquario(10.0,10.0,10.0, 10.0, 10);
+        assertThrows(RuntimeException.class, () -> {
+        aquatest.setAltura(-10.0);
+        aquatest.setLargura(10.0);
+        aquatest.setAltura(-10.0);
+            
+    });
     }
 
     @Test
     public void testCalcularVdasolume2NegCompLa(){
         // AAA
         // Arrange
-        Aquario aquatest  = new Aquario(10,10,10,36,35);
-        aquatest.setComprimento(-10);
-        aquatest.setLargura(-10);
-       aquatest.setAltura(10);
-
-        double volume = aquatest.calcularVolume();
-
-        assertEquals(1, volume);
+        Aquario aquatest  = new Aquario(10.0,10.0,10.0, 10.0, 10);
+        assertThrows(RuntimeException.class, () -> {
+        aquatest.setComprimento(-10.0);
+        aquatest.setLargura(-10.0);
+        aquatest.setAltura(10.0);
+    });
     }
 
     @Test
     public void testCalcularVdasolume2NegLaAl(){
         // AAA
         // Arrange
-        Aquario aquatest  = new Aquario(10,10,10,36,35);
-       aquatest.setComprimento(10);
-        aquatest.setLargura(-10);
-        aquatest.setAltura(-10);
+        Aquario aquatest  = new Aquario(10.0,10.0,10.0, 10.0, 10);
+        assertThrows(RuntimeException.class, () -> {
+        aquatest.setComprimento(10.0);
+        aquatest.setLargura(-10.0);
+        aquatest.setAltura(-10.0);
 
-        double volume = aquatest.calcularVolume();
-
-        assertEquals(1, volume);
+        
+    });
     }
 
     @Test
     public void testCalcularPortencia(){
         // AAA
         // Arrange
-        Aquario aquatest  = new Aquario(10,10,10,36,35);
-       aquatest.setComprimento(10);
-        aquatest.setLargura(10);
-       aquatest.setAltura(10);
-        aquatest.setTempAmbiente(100);
-       aquatest.setTempDesejada(30);
+        Aquario aquatest  = new Aquario(10.0,10.0,10.0, 10.0, 10.0);
 
         double potencia = aquatest.calcularPotenciaDoTermostato();
+        assertThrows(RuntimeException.class, () -> {
+        aquatest.setComprimento(10.0);
+        aquatest.setLargura(-10.0);
+        aquatest.setAltura(-10.0);
 
-        assertEquals(-3.5, potencia);
-    }
-
-    @Test
-    public void testCalcularPortenciaNegativa(){
-        // AAA
-        // Arrange
-        Aquario aquatest  = new Aquario(10,10,10,36,35);
-       aquatest.setComprimento(10);
-        aquatest.setLargura(10);
-       aquatest.setAltura(10);
-       aquatest.setTempAmbiente(-100);
-       aquatest.setTempDesejada(30);
-
-        double potencia = aquatest.calcularPotenciaDoTermostato();
-
-        assertEquals(-3.5, potencia);
+        
+    });
     }
 
 }

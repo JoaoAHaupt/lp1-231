@@ -11,3 +11,6 @@ Repositório destinado ao conteúdo de LP-1
 - Semana 3
     - Criação de projeto Java
     - Tipo de dados vareavéis e constantes
+
+ 
+  <img src="https://snct.ifspcjo.edu.br/2014/arquivos/img/palestrantes/domingos.jpg">

@@ -1,5 +1,6 @@
 # AULAS DE LP-1
 Repositório destinado ao conteúdo de LP-1
+  <img src="https://snct.ifspcjo.edu.br/2014/arquivos/img/palestrantes/domingos.jpg">
 
 # Conteúdo 
 - Semana 1
@@ -13,4 +14,4 @@ Repositório destinado ao conteúdo de LP-1
     - Tipo de dados vareavéis e constantes
 
  
-  <img src="https://snct.ifspcjo.edu.br/2014/arquivos/img/palestrantes/domingos.jpg">
+

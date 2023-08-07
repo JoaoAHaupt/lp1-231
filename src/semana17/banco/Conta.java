@@ -1,4 +1,4 @@
-package semana17.bacno;
+package semana17.banco;
 import java.time.LocalDate;
 
 public class Conta{
@@ -8,6 +8,14 @@ public class Conta{
     protected double saldo;
     protected double tarifa;
     private Correntista correntista;
+
+    public Conta(int numero, LocalDate dataAbertura, double saldo, double tarifa, Correntista correntista) {
+        this.setNumero(numero);
+        this.setDataAbertura(dataAbertura);
+        this.setSaldo(saldo);
+        this.setTarifa(tarifa);
+        this.setCorrentista(correntista);
+    }
 
     public void sacar(double valor){
         if(valor > saldo || valor < 0){
@@ -57,4 +65,8 @@ public class Conta{
     public void setTarifa(double tarifa) {
         this.tarifa = tarifa;
     }
+
+    public Correntista getCorrentista() {return correntista;}
+
+    public void setCorrentista(Correntista correntista) {this.correntista = correntista;}
 }

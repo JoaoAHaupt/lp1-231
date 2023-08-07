@@ -1,4 +1,4 @@
-package semana17.bacno;
+package semana17.banco;
 
 import java.util.List;
 
@@ -7,6 +7,11 @@ public class Correntista {
     private String nome;
     private List<Conta> contas;
 
+    public Correntista(int codigo, String nome, List<Conta> contas) {
+        this.setCodigo(codigo);
+        this.setNome(nome);
+        this.setContas(contas);
+    }
 
     public int getCodigo() {
         return codigo;

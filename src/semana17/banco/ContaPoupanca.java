@@ -1,10 +1,15 @@
-package semana17.bacno;
+package semana17.banco;
 
 import java.time.LocalDate;
 
-public class contaPoupanca extends Conta {
+public class ContaPoupanca extends Conta {
 
     private LocalDate aniversario;
+
+    public ContaPoupanca(int numero, LocalDate dataAbertura, double saldo, double tarifa, Correntista correntista, LocalDate aniversario) {
+        super(numero, dataAbertura, saldo, tarifa, correntista);
+        this.setAniversario(aniversario);
+    }
 
     @Override
     public double calcularTarifa() {

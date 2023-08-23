@@ -20,7 +20,7 @@ public class ContaCorrente extends Conta{
 
     @Override
     public double calcularTarifa() {
-        return this.tarefa * 1.5;
+        return this.tarifa * 1.5;
     }
 
     @Override

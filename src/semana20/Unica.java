@@ -15,14 +15,14 @@ public class Unica extends Questao{
     }
 
 
-    public void isCorrect() {
+    public boolean isCorrect() {
         Scanner sc = new Scanner(System.in);
         int escolha = sc.nextInt();
 
         if (escolha == getResposta()) {  // Assuming getResposta() returns an integer
-            System.out.println("Correto!");
+            return true;
         } else {
-            System.out.println("Resposta incorreta. A alternativa certa era: " + getResposta());
+            return false;
         }
     }
 }

@@ -44,17 +44,14 @@ public class Prova {
         for (int i = 0; i < getQuestoes().size(); i++) {
             Object obj = getQuestoes().get(i);
             if(obj instanceof Multiplas){
-                ((Multiplas) getQuestoes().get(i)).mostrarPergunta();
-                ((Multiplas) getQuestoes().get(i)).isCorrect();
+                ((Multiplas) obj).mostrarPergunta();
+                ((Multiplas) obj).isCorrect();
             }
             else if(obj instanceof TrueFalse){
-                ((TrueFalse) getQuestoes().get(i)).mostrarPergunta();
-                ((TrueFalse) getQuestoes().get(i)).isCorrect();
+                ((TrueFalse) obj).mostrarPergunta();
+                ((TrueFalse) obj).isCorrect();
             }
-            else {
-                ((Unica) getQuestoes().get(i)).mostrarPergunta();
-                ((Unica) getQuestoes().get(i)).isCorrect();
-            }
+
 
         }
     }

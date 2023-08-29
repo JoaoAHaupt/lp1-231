@@ -38,17 +38,25 @@ public class Multiplas extends Questao {
             intArray[i] = Integer.parseInt(inputValues[i]);
         }
 
+        int certas = 0;
+        int erradas = 0;
 
         for (int i = 0; i < intArray.length; i++) {
-            if(getRespostas().contains(intArray[i])){
-                System.out.println("Acertou");
+
+            if (getRespostas().contains(intArray[i])) {
+                certas++;
+            } else {
+                erradas++;
             }
-            else{
-                System.out.println("errodu");
-            }
+
+            scanner.close();
+        }
+        if (certas > erradas) {
+            System.out.println("ACertou");
+        } else {
+            System.out.println("errou");
         }
 
-        scanner.close();
     }
 
 }

@@ -17,9 +17,9 @@ public class TrueFalse extends Questao {
         int escolha = sc.nextInt();
         sc.nextLine();
         if (escolha == getResposta()) {
-            System.out.println("Correto");;
+            System.out.println("ACertou");
         } else {
-            System.out.println("Incorreto");;
+            System.out.println("errou");
         }
 
     }

@@ -2,7 +2,7 @@ package semana20;
 
 import java.util.Map;
 
-public class Questao {
+public abstract class Questao {
 
     private int numero;
     private String enunciado;
@@ -15,9 +15,6 @@ public class Questao {
         this.enunciado = enunciado;
         this.alternativas = alternativas;
     }
-
-
-
 
 
     public int getNumero() {
@@ -51,4 +48,11 @@ public class Questao {
     public void setAlternativas(Map alternativas) {
         this.alternativas = alternativas;
     }
+
+
+    public void mostrarPergunta(){}
+
+    public abstract boolean isCorrect();
+
+    public abstract boolean isCorrect(int escolha);
 }

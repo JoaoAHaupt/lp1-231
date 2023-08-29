@@ -10,16 +10,17 @@ public class Unica extends Questao{
         super( numero, enunciado, resposta, alternativas);
     }
 
+    @Override
     public void mostrarPergunta(){
         System.out.println(getEnunciado() + " " + getAlternativas());
     }
 
-
+    @Override
     public boolean isCorrect() {
         Scanner sc = new Scanner(System.in);
         int escolha = sc.nextInt();
 
-        if (escolha == getResposta()) {  // Assuming getResposta() returns an integer
+        if (escolha == getResposta()) {
             return true;
         } else {
             return false;

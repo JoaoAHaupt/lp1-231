@@ -21,15 +21,14 @@ public class Multiplas extends Questao {
         this.respostas = respostas;
     }
 
+    @Override
     public void mostrarPergunta(){
         System.out.println(getEnunciado() + "(OBS: DIGITE O NÚMERO DAS ALTERNATIVAS COM ESPAÇOS ENTRE ELES) \n " + getAlternativas());
     }
 
+    @Override
+    public boolean isCorrect(String ) {
 
-    public void isCorrect() {
-        Scanner scanner = new Scanner(System.in);
-
-        String inputLine = scanner.nextLine();
 
         String[] inputValues = inputLine.split(" ");
         int[] intArray = new int[inputValues.length];
@@ -52,11 +51,16 @@ public class Multiplas extends Questao {
             scanner.close();
         }
         if (certas > erradas) {
-            System.out.println("ACertou");
+            return true;
         } else {
-            System.out.println("errou");
+            return false;
         }
 
+    }
+
+    @Override
+    public boolean isCorrect(int escolha) {
+        return false;
     }
 
 }

@@ -8,9 +8,9 @@ public class Prova {
 
     private String nome;
     private int pontuacao;
-    private List<Map<Integer, String>> questoes;
+    private List<Questao> questoes;
 
-    public Prova(String nome, int pontuacao, List<Map<Integer, String>> questoes) {
+    public Prova(String nome, int pontuacao, List<Questao> questoes) {
         this.nome = nome;
         this.pontuacao = pontuacao;
         this.questoes = questoes;
@@ -32,28 +32,31 @@ public class Prova {
         this.pontuacao = pontuacao;
     }
 
-    public List<Map<Integer, String>> getQuestoes() {
+    public List<Questao> getQuestoes() {
         return questoes;
     }
 
-    public void setQuestoes(List<Map<Integer, String>> questoes) {
+    public void setQuestoes(List<Questao> questoes) {
         this.questoes = questoes;
     }
 
-    public void provasQuestoes(){
+    public int provasQuestoes(){
+        int nota = 0;
         for (int i = 0; i < getQuestoes().size(); i++) {
-            Object obj = getQuestoes().get(i);
-            if(obj instanceof Multiplas){
-                ((Multiplas) obj).mostrarPergunta();
-                ((Multiplas) obj).isCorrect();
+            if(getQuestoes() instanceof Multiplas){
+                ((Multiplas) getQuestoes()).mostrarPergunta();
+                ((Multiplas) getQuestoes()).isCorrect();
+                if(((Multiplas) getQuestoes()).isCorrect() == true){
+                    nota++;
+                }
             }
-            else if(obj instanceof TrueFalse){
-                ((TrueFalse) obj).mostrarPergunta();
-                ((TrueFalse) obj).isCorrect();
+            else if(getQuestoes() instanceof TrueFalse){
+                ((TrueFalse) getQuestoes()).mostrarPergunta();
+                ((TrueFalse) getQuestoes()).isCorrect();
             }
-
-
         }
+
+        return nota;
     }
 }
 

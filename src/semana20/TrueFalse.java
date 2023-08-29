@@ -1,6 +1,5 @@
 package semana20;
 import java.util.Map;
-import java.util.Scanner;
 
 public class TrueFalse extends Questao {
 
@@ -8,18 +7,23 @@ public class TrueFalse extends Questao {
         super(numero, enunciado, resposta, alternativas);
     }
 
+    @Override
     public void mostrarPergunta(){
         System.out.println(getEnunciado() + " " + getAlternativas());
     }
 
-    public void isCorrect() {
-        Scanner sc = new Scanner(System.in);
-        int escolha = sc.nextInt();
-        sc.nextLine();
+    @Override
+    public boolean isCorrect() {
+        return false;
+    }
+
+    @Override
+    public boolean isCorrect(int escolha) {
+
         if (escolha == getResposta()) {
-            System.out.println("ACertou");
+            return true;
         } else {
-            System.out.println("errou");
+            return false;
         }
 
     }

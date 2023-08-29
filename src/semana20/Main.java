@@ -34,8 +34,12 @@ public class Main {
         Multiplas multiplasquestoes = new Multiplas(3, "Qual mais adequado?", escolhas1, alternativas3);
 
 
-        List<Map<Integer, String>> questoes = new ArrayList<>();
-        questoes.add(alternativas3);
+        List<Questao> questoes = new ArrayList<>();
+        questoes.add(multiplasquestoes);
+        questoes.add(questaoUnica1);
+        questoes.add(qtf1);
+
+
 
 
         Prova p1 = new Prova("Prova Bimestral", 0,questoes);

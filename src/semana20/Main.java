@@ -9,7 +9,7 @@ public class Main {
         Map<Integer, String> alternativas1 = new HashMap<>();
         alternativas1.put(1, "Verdadeiro");
         alternativas1.put(2, "Falso");
-        TrueFalse qtf1 = new TrueFalse(1, "Eu sou lindo?", 1, alternativas1);
+        TrueFalse qtf1 = new TrueFalse(1, "Raskolnikov nasceu em São Petesburgo?", 2, alternativas1);
 
 
 
@@ -18,8 +18,8 @@ public class Main {
         alternativas2.put(1, "Platão");
         alternativas2.put(2, "Galileu Galilei ");
         alternativas2.put(3, "Descartes");
-        alternativas2.put(4, "Socrates");
-        Unica questaoUnica1 = new Unica(2, "De quem é a famosa frase “Penso, logo existo”?", 3 ,alternativas2);
+        alternativas2.put(4, "Fiodor Dosotieviski");
+        Unica questaoUnica1 = new Unica(2, "Qual o autor de Crime e Castigo?", 4 ,alternativas2);
 
 
         // Multipla escolha
@@ -39,11 +39,29 @@ public class Main {
         questoes.add(questaoUnica1);
         questoes.add(qtf1);
 
+        List<Integer>qtf1resposta = new ArrayList<>();
+        qtf1resposta.add(1);
+
+        List<Integer> questaoUnica1Resposta = new ArrayList<>();
+        questaoUnica1Resposta.add(4);
+
+        List<Integer> multiplasQuestoesRespostas = new ArrayList<>();
+        multiplasQuestoesRespostas.add(1);
+        multiplasQuestoesRespostas.add(3);
 
 
 
-        Prova p1 = new Prova("Prova Bimestral", 0,questoes);
-        p1.provasQuestoes();
+        Map<Questao, List<Integer>> escolhas = new HashMap<>();
+        escolhas.put(qtf1, qtf1resposta);
+        escolhas.put(questaoUnica1, questaoUnica1Resposta);
+        escolhas.put(multiplasquestoes, multiplasQuestoesRespostas);
+
+        Prova prova = new Prova("Prova sobre Crime e Castigo (livro)", questoes);
+
+
+
+        int nota = prova.verificarRespostas(escolhas);
+        System.out.println("\nVocê acertou/tirou de nota " + nota + " de " + questoes.size() + " alternativas");
 
     }
 }

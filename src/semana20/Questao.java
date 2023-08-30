@@ -1,5 +1,6 @@
 package semana20;
 
+import java.util.List;
 import java.util.Map;
 
 public abstract class Questao {
@@ -52,7 +53,18 @@ public abstract class Questao {
 
     public void mostrarPergunta(){}
 
-    public abstract boolean isCorrect();
 
-    public abstract boolean isCorrect(int escolha);
+
+
+    public boolean isCorrect(List<Integer> escolha) {
+        for(int i = 0; i < escolha.size(); i++){
+            if (escolha.get(i) == getResposta()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
+
 }

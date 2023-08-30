@@ -7,12 +7,11 @@ import java.util.Objects;
 public class Prova {
 
     private String nome;
-    private int pontuacao;
+
     private List<Questao> questoes;
 
-    public Prova(String nome, int pontuacao, List<Questao> questoes) {
+    public Prova(String nome, List<Questao> questoes) {
         this.nome = nome;
-        this.pontuacao = pontuacao;
         this.questoes = questoes;
     }
 
@@ -24,39 +23,27 @@ public class Prova {
         this.nome = nome;
     }
 
-    public int getPontuacao() {
-        return pontuacao;
-    }
 
-    public void setPontuacao(int pontuacao) {
-        this.pontuacao = pontuacao;
-    }
 
     public List<Questao> getQuestoes() {
         return questoes;
     }
 
-    public void setQuestoes(List<Questao> questoes) {
-        this.questoes = questoes;
-    }
 
-    public int provasQuestoes(){
+    public int verificarRespostas(Map<Questao, List<Integer>> escolhas) {
         int nota = 0;
-        for (int i = 0; i < getQuestoes().size(); i++) {
-            if(getQuestoes() instanceof Multiplas){
-                ((Multiplas) getQuestoes()).mostrarPergunta();
-                ((Multiplas) getQuestoes()).isCorrect();
-                if(((Multiplas) getQuestoes()).isCorrect() == true){
-                    nota++;
-                }
-            }
-            else if(getQuestoes() instanceof TrueFalse){
-                ((TrueFalse) getQuestoes()).mostrarPergunta();
-                ((TrueFalse) getQuestoes()).isCorrect();
+
+        for (Questao questao : questoes) {
+            questao.mostrarPergunta();
+            questao.getAlternativas();
+            List<Integer> escolha = escolhas.get(questao);
+            if (escolha != null && questao.isCorrect(escolha)) {
+                nota++;
             }
         }
-
         return nota;
     }
+
+
 }
 

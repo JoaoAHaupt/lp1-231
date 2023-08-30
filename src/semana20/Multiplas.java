@@ -1,8 +1,6 @@
 package semana20;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.List;
-import java.util.ArrayList;
 
 
 public class Multiplas extends Questao {
@@ -25,43 +23,20 @@ public class Multiplas extends Questao {
     public void mostrarPergunta(){
         System.out.println(getEnunciado() + "(OBS: DIGITE O NÚMERO DAS ALTERNATIVAS COM ESPAÇOS ENTRE ELES) \n " + getAlternativas());
     }
-
     @Override
-    public boolean isCorrect(String ) {
-
-
-        String[] inputValues = inputLine.split(" ");
-        int[] intArray = new int[inputValues.length];
-
-        for (int i = 0; i < inputValues.length; i++) {
-            intArray[i] = Integer.parseInt(inputValues[i]);
-        }
-
-        int certas = 0;
-        int erradas = 0;
-
-        for (int i = 0; i < intArray.length; i++) {
-
-            if (getRespostas().contains(intArray[i])) {
-                certas++;
-            } else {
-                erradas++;
+    public boolean isCorrect(List<Integer> escolha) {
+        int certo = 0;
+        for(int i = 0; i < escolha.size(); i++){
+            if(respostas.contains(escolha.get(i))){
+                certo++;
             }
-
-            scanner.close();
         }
-        if (certas > erradas) {
+        if(certo == respostas.size()){
             return true;
-        } else {
-            return false;
         }
-
-    }
-
-    @Override
-    public boolean isCorrect(int escolha) {
         return false;
     }
+
 
 }
 

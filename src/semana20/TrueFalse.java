@@ -12,19 +12,4 @@ public class TrueFalse extends Questao {
         System.out.println(getEnunciado() + " " + getAlternativas());
     }
 
-    @Override
-    public boolean isCorrect() {
-        return false;
-    }
-
-    @Override
-    public boolean isCorrect(int escolha) {
-
-        if (escolha == getResposta()) {
-            return true;
-        } else {
-            return false;
-        }
-
-    }
 }

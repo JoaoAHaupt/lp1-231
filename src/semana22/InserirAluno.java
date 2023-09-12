@@ -4,10 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.Scanner;
 
-import com.mysql.cj.x.protobuf.MysqlxCrud.Update;
-import com.mysql.cj.xdevapi.PreparableStatement;
 
 public class InserirAluno {
     public static void main(String[] args) throws SQLException {
@@ -15,26 +13,38 @@ public class InserirAluno {
         Connection connection = DriverManager.getConnection(url);
 
         // 2. Executar a consulta e usar os resultados
-        int id = 1;
+        
 
         // Não concatenar pq o cara pode fazer uma SQL INJECTION, que apaga a data base
-        String sqlInjection = "-- DROP TABLE alunos; --";
+        //String sqlInjection = "-- DROP TABLE alunos; --";
 
-        String nome = "Latorre Pereira";
-        String email = "latorre.pereira@terra.com";
-        boolean ativo = true;
+        Scanner sc = new Scanner(System.in);
+        String nome = sc.nextLine();
+        String email = sc.nextLine();
+        boolean ativo = sc.nextBoolean();
+        int id = sc.nextInt();
 
-        String sql = "INSERT INTO alunos VALUES(?, ?, ?, ?);";
+        
+
+        String sql = "UPDATE alunos SET nome = ?, email = ?, ativo = ? WHERE id = ?";
 
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, id);
-        statement.setString(2, nome);
-        statement.setString(3, email);
-        statement.setBoolean(4, ativo);
+        statement.setString(1, nome);
+        statement.setString(2, email);
+        statement.setBoolean(3, ativo);
+        statement.setInt(4, id);
 
-        statement.executeUpdate();
+
+        int deuCerto = statement.executeUpdate();
+
+        if (deuCerto > 0) {
+            System.out.println("Dados foram atualizados");
+        } else {
+            System.out.println("Aluno com id = " + id + " não existe no banco de dados." );
+        }
 
         // 3. Fechar conexão
+        sc.close();
         statement.close();
         connection.close();
     }

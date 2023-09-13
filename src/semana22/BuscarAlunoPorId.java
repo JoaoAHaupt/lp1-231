@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Scanner;
 
 public class BuscarAlunoPorId {
@@ -13,14 +12,14 @@ public class BuscarAlunoPorId {
         String url = "jdbc:mysql://localhost/estudante?user=estudante&password=estudante&useSSL=true";
         Connection connection = DriverManager.getConnection(url);
 
-        
+        System.out.println("Insira o id do lado para mostrar os dados ");
         Scanner sc = new Scanner(System.in);
         int idDesejado = sc.nextInt();
 
         // 2. Buscar todos os alunos
         String sql = "SELECT * FROM alunos WHERE id = ?;";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(idDesejado, 1);
+        statement.setInt(1, idDesejado);
 
         ResultSet rs = statement.executeQuery(sql);
 
@@ -35,6 +34,7 @@ public class BuscarAlunoPorId {
 
         // 3. Fechar a conexão
         rs.close();
+        sc.close();
         connection.close();
         statement.close();
         
